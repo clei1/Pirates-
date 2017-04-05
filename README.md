@@ -2,8 +2,7 @@
 Donia Tung, Connie Lei, Dima Hvirtsman<br />
 APCS2 Period 1 <br />
 
-##### Please don't be lazy and look at our interface for the method listings.... :)
-##### Great extra drowning in copypasta comments!
+##### Please don't be lazy and look at our interface for the method listings.... :) <br />Great extra drowning in copypasta comments!
 ```void addFirst( T );``` <br />
 ```void addLast( T );``` <br />
 ```T removeFirst();``` <br />

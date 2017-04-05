@@ -7,6 +7,7 @@
   ======================================*/
 
 public class DLLDeque<T> implements Deque<T>{
+<<<<<<< HEAD
 
     // customized interface Deque.java must be in same dir	
 
@@ -92,20 +93,67 @@ public class DLLDeque<T> implements Deque<T>{
 
     // Retrieves, but does not remove, the first element of this deque, or returns null if this deque is empty.
     // Returns the head of this deque, or null if this deque is empty
+=======
+    
+    //add removeLast(), if the thing exists and where it exists, other stuffs	
+	
+    public DLLNode<T> first, last; //Nodes for the first and last element
+    public int size; // keep track of size
+
+
+    //Constructor 
+    public DLLDeque() {
+	first = null;
+	last = null;
+	size = 0;
+    }
+    
+    //Method to add to the front of the Deque
+    public void addFirst(T node){
+	first = new DLLNode(node, first);    
+	size++;
+    }
+
+    //Method to add the the end of the Deque
+    public void addLast (T node) {
+	DLLNode nnode = new DLLNode(node, null);
+	last.setNext(nnode);
+	last = nnode;
+	size++;
+    }
+
+    //Removes the first element of the Deque
+    public void removeFirst() {
+	first = first.getNext();
+	size--;
+    }
+
+    //Returns the size of the Deque
+    public int size() {
+	return size;
+    }
+
+    //Returns (does not remove) the first element of the Deque
+>>>>>>> 4aaeb8538158e0a40eb8e840f70a9c6552ce8e01
     public T peekFirst() {
 	if(isEmpty()) //checks to make sure the deque is not empty by calling isEmpty() and utilizing size
 	    return null; //fulfills the requirements stated in the API by returning null, a special value, instead of throwing an exception
 	return _first.getCargo(); //if there is at least one element, continue on and return the last's cargo
     }
 
+<<<<<<< HEAD
     // Retrieves, but does not remove, the last element of this deque, or returns null if this deque is empty.
     // Returns the tail of this deque, or null if this deque is empty
+=======
+    //Returns (does not remove) the last element of the Deque
+>>>>>>> 4aaeb8538158e0a40eb8e840f70a9c6552ce8e01
     public T peekLast() {
 	if(isEmpty()) //checks to make sure the deque is not empty by calling isEmpty() and utilizing size
 	    return null; //fulfills the requirements stated in the API by returning null, a special value, instead of throwing an exception
 	return _last.getCargo(); //if there is at least one element, continue on and return the last's cargo
     }
 
+<<<<<<< HEAD
     /**
     // Retrieves, but does not remove, the first element of this deque. This method differs from peekFirst only in that it throws an exception if this deque is empty.
     // Returns the head of this deque
@@ -127,10 +175,15 @@ public class DLLDeque<T> implements Deque<T>{
     **/
     //--------------^  ACCESSORS  ^--------------
 
+=======
+    //Returns a boolean, checks if the Deque is empty
+>>>>>>> 4aaeb8538158e0a40eb8e840f70a9c6552ce8e01
     public boolean isEmpty() {
 	return _size == 0;
     }
+
     
+<<<<<<< HEAD
     //--------------^  Deque interface methods  ^--------------
 
     // override inherited toString
@@ -150,6 +203,9 @@ public class DLLDeque<T> implements Deque<T>{
 	
 	/*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
 	//instantiates a new instance of object DLLDeque
+=======
+    /* public static void main(String[] args) {
+>>>>>>> 4aaeb8538158e0a40eb8e840f70a9c6552ce8e01
 	DLLDeque fred = new DLLDeque();
 
 	//checks for inital emptiness
@@ -174,11 +230,16 @@ public class DLLDeque<T> implements Deque<T>{
 	System.out.println(fred.isEmpty());
 	//checks for updated size after THREE additions and ONE subtraction
 	System.out.println(fred.size());
+<<<<<<< HEAD
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 	
     }// end main
     
 }// end class DLLDeque
+=======
+    }*/
+}
+>>>>>>> 4aaeb8538158e0a40eb8e840f70a9c6552ce8e01
 
     
 	

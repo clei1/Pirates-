@@ -7,7 +7,7 @@ public class DequeTester {
 
     public static void main (String[] args) {
 
-	DDeque<String> foo = new DDeque<String>();
+	DLLDeque<String> foo = new DLLDeque<String>();
 
 	
 	// testing addFirst
@@ -35,6 +35,13 @@ public class DequeTester {
 	foo.addLast("ice cream");
 	System.out.println(foo + "\tsize: " + foo.size());
 
+	// peekFirst
+	System.out.println("peekFirst: ");
+	System.out.println(foo.peekFirst());
+
+	// peekLast
+	System.out.println("peekLast: ");
+	System.out.println(foo.peekLast());
 	
 	// testing removeFirst
 
@@ -61,11 +68,18 @@ public class DequeTester {
 	foo.removeLast();
 	System.out.println(foo + "\tsize: " + foo.size());
 
+	System.out.println("peekFirst: ");
+	System.out.println(foo.peekFirst());
+
+	System.out.println("peekLast: ");
+	System.out.println(foo.peekLast());
+
 	// removes the last element of the deque, null, so throws a NullPointerException
 	//foo.removeLast();
 	//System.out.println(foo + "\tsize: " + foo.size());
 
-	
+
+	/*
 	// testing contains
 
 	// adds corresponding String to the end of the deque, for testing purposes
@@ -126,7 +140,7 @@ public class DequeTester {
 	System.out.println(foo.removeFirstOccurrence("green tea"));
 	System.out.println(foo + "\tsize: " + foo.size());
 	
-
+	*/
     }
 
 }

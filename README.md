@@ -1,8 +1,8 @@
 # Team Pirates (but should have been Queuepids)
 Donia Tung, Connie Lei, Dima Hvirtsman<br />
 APCS2 Period 1 <br />
-2017-04-03 <br />
 
+##### Please don't be lazy and look at our interface for the method listings.... :)
 ```void addFirst( T );``` <br />
 ```void addLast( T );``` <br />
 ```T removeFirst();``` <br />

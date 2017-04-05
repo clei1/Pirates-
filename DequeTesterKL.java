@@ -12,7 +12,7 @@
   Replace method calls with method chosen by implementer (ex. add vs offer)
   =================================*/
 
-public class DequeTester {
+public class DequeTesterKL {
 
     public static void main (String [] args) {
 

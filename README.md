@@ -2,6 +2,8 @@
 Donia Tung, Connie Lei, Dima Hvirtsman<br />
 APCS2 Period 1 <br />
 
+###### note: wip, our functions don't work perfectly yet, the logic was not sound and i'm too tired to fix it rn
+
 ##### Please don't be lazy and look at our interface for the method listings.... :) <br />Great extra drowning in copypasta comments!
 ```void addFirst( T );``` <br />
 ```void addLast( T );``` <br />

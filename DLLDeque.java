@@ -50,11 +50,17 @@ public class DLLDeque<T> implements Deque<T>{
     //        NullPointerException - if the specified element is null and this deque does not permit null elements
     //        IllegalArgumentException - if some property of the specified element prevents it from being added to this deque
     public void addFirst(T cargo){
-	if(cargo.equals(null)) //checks to make sure null is not being added
-	    throw new NullPointerException();
-	_first.setPrev(new DLLNode(cargo, null, _first)); //creates a link to the new node with cargo, adding it before the first node
-	_first = _first.getPrev(); //updates first to reset it at the head of the linked nodes
-	_size++; //updates size because one added element
+	if(_size == 0){
+	   _front = new DLLNode(cargo, null, null);
+	   _last = _first;	
+	}
+	else{
+	    if(cargo.equals(null)) //checks to make sure null is not being added
+	        throw new NullPointerException();
+	    _first.setPrev(new DLLNode(cargo, null, _first)); //creates a link to the new node with cargo, adding it before the first node
+	    _first = _first.getPrev(); //updates first to reset it at the head of the linked nodes
+	    _size++; //updates size because one added element
+	}
     }
     
     // Inserts the specified element at the end of this deque
@@ -62,11 +68,17 @@ public class DLLDeque<T> implements Deque<T>{
     //        NullPointerException - if the specified element is null and this deque does not permit null elements
     //        IllegalArgumentException - if some property of the specified element prevents it from being added to this deque	
     public void addLast (T cargo) {
-	if(cargo.equals(null)) //checks to make sure null is not being added
-	    throw new NullPointerException(); 
-	_last.setNext(new DLLNode(cargo, _last, null)); //creates a link to the new node with cargo, adding it after the last node
-	_last = _last.getNext(); //updates last to reset it at the end of the linked nodes
-	_size++; //updates size because one added element
+	if(_size == 0){
+	   _front = new DLLNode(cargo, null, null);
+	   _last = _first;	
+	}
+	else{
+	   if(cargo.equals(null)) //checks to make sure null is not being added
+	        throw new NullPointerException(); 
+	    _last.setNext(new DLLNode(cargo, _last, null)); //creates a link to the new node with cargo, adding it after the last node
+	    _last = _last.getNext(); //updates last to reset it at the end of the linked nodes
+	    _size++; //updates size because one added element
+	}
     }
 
     // Retrieves and removes the first element of this deque. This method differs from pollFirst only in that it throws an exception if this deque is empty.

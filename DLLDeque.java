@@ -51,7 +51,7 @@ public class DLLDeque<T> implements Deque<T>{
     //        IllegalArgumentException - if some property of the specified element prevents it from being added to this deque
     public void addFirst(T cargo){
 	if(_size == 0){
-	   _front = new DLLNode(cargo, null, null);
+	   _first = new DLLNode(cargo, null, null);
 	   _last = _first;	
 	}
 	else{
@@ -69,7 +69,7 @@ public class DLLDeque<T> implements Deque<T>{
     //        IllegalArgumentException - if some property of the specified element prevents it from being added to this deque	
     public void addLast (T cargo) {
 	if(_size == 0){
-	   _front = new DLLNode(cargo, null, null);
+	   _first = new DLLNode(cargo, null, null);
 	   _last = _first;	
 	}
 	else{

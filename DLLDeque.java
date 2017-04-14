@@ -6,6 +6,8 @@
   This implementation of Deque does not have capacity restrictions so it does not have certain functions
   ======================================*/
 
+import java.util.NoSuchElementException;
+
 public class DLLDeque<T> implements Deque<T>{
 
     // customized interface Deque.java must be in same dir	
@@ -23,21 +25,6 @@ public class DLLDeque<T> implements Deque<T>{
 	_last = new DLLNode<T>(null, null, null);
 	// even though first and last both are instances of DLLNode, they are not important and unlinked (there is no need to link them because they are just placeholders)
 	// it does not matter if they were linked and since it takes two extra steps to link them, they aren't
-	/***
-	    // Code for linking the two heads at the beginning:
-	    
-
-	    _first = new DLLNode<T>(null, null, new DLLNode<T>(null, null, null));
-	    _last = _first.getNext();
-	    _last.setPrev(_first);
-
-	    // OR
-
-	    _first = new DLLNode<T>(null, null, null);
-	    _last = new DLLNode<T>(null, null, null);
-	    _first.setNext(_last);
-	    _last.setPrev(_first);
-	***/
 	// size is set to zero because no values of importance have been set
 	_size = 0;
     }   
@@ -52,7 +39,8 @@ public class DLLDeque<T> implements Deque<T>{
     public void addFirst(T cargo){
 	if(_size == 0){
 	   _first = new DLLNode(cargo, null, null);
-	   _last = _first;	
+	   _last = _first;
+	   _size++;
 	}
 	else{
 	    if(cargo.equals(null)) //checks to make sure null is not being added
@@ -70,7 +58,8 @@ public class DLLDeque<T> implements Deque<T>{
     public void addLast (T cargo) {
 	if(_size == 0){
 	   _first = new DLLNode(cargo, null, null);
-	   _last = _first;	
+	   _last = _first;
+	   _size ++;   
 	}
 	else{
 	   if(cargo.equals(null)) //checks to make sure null is not being added
@@ -85,18 +74,40 @@ public class DLLDeque<T> implements Deque<T>{
     // Returns the head of this deque
     // Throws NoSuchElementException - if this deque is empty
     public T removeFirst() {
+	if(isEmpty()){
+	    throw new NoSuchElementException();
+	}
 	_size--; //update the size counter because one node is being removed
-	_first = _first.getNext(); //first becomes the one after the one being removed	
-	return _first.setPrev(null).getCargo(); //remove the link between the node being removed and first, setPrev(T) returns the removed node, so you can automatically call an accessor
+	if(_size == 0){
+	    T temp = _first.getCargo();
+	    _last = new DLLNode<T>(null, null, null);
+	    _first = _last;
+	    return temp;
+	}
+	else{
+	    _first = _first.getNext(); //first becomes the one after the one being removed	
+	    return _first.setPrev(null).getCargo(); //remove the link between the node being removed and first, setPrev(T) returns the removed node, so you can automatically call an accessor
+	}
     }
     
     // Retrieves and removes the last element of this deque. This method differs from pollLast only in that it throws an exception if this deque is empty.
     // Returns the tail of this deque
     // Throws NoSuchElementException - if this deque is empty
     public T removeLast(){
+	if(isEmpty()){
+	    throw new NoSuchElementException();
+	}
 	_size--; //update the size counter because one node is being removed
-	_last = _last.getPrev(); //last becomes the one before the one being removed
-	return _last.setNext(null).getCargo(); //remove the link between the node being removed and last, setNext(T) returns the removed node, so you can automatically call an acccessor
+	if(_size == 0){
+	    T temp = _last.getCargo();
+	    _last = new DLLNode<T>(null, null, null);
+	    _first = _last;
+	    return temp;
+	}
+	else{
+	    _last = _last.getPrev(); //last becomes the one before the one being removed
+	    return _last.setNext(null).getCargo(); //remove the link between the node being removed and last, setNext(T) returns the removed node, so you can automatically call an acccessor
+	}
     }
     
     //--------------v  ACCESSORS  v--------------

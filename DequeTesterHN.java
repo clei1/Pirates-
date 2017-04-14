@@ -48,7 +48,7 @@ public class DequeTesterHN{
 	System.out.println(test.removeFirst());
 	System.out.println(test.removeFirst());
 	//polling an empty Dequeue
-	System.out.println(test.removeFirst() + "-list empty");
+	//System.out.println(test.removeFirst() + "-list empty");
 
 	System.out.println("\nEnd of test 1\n");
 
@@ -84,7 +84,7 @@ public class DequeTesterHN{
 	System.out.println(test2.removeLast());
 	System.out.println(test2.removeLast());
 	System.out.println(test2.removeLast());
-	System.out.println(test2.removeLast() + "-list empty");
+	//System.out.println(test2.removeLast() + "-list empty");
 
 	// //tests removeFirstOccurrence() and removeLastOccurrence()
 	// DLLDeque<String> test3 = new DLLDeque<String>(5);

@@ -2,8 +2,6 @@
 Donia Tung, Connie Lei, Dima Hvirtsman<br />
 APCS2 Period 1 <br />
 
-###### note: wip, our functions don't work perfectly yet, the logic was not sound and i'm too tired to fix it rn
-
 ##### Please don't be lazy and look at our interface for the method listings.... :) <br />Great extra drowning in copypasta comments!
 ```void addFirst( T );``` <br />
 ```void addLast( T );``` <br />
@@ -19,3 +17,6 @@ We wanted to have similar functionality as Queue had, so when we looked at the A
 
 ## Choosing Doubly Linked Nodes
 We literally choose nodes because Dima wanted us to. At first we thought it should have been an ArrayList because it is a lot easier to do, but we began with singly linked nodes. Instead of using doubly linked nodes, we choose to use singly linked nodes because it got complicated for all the other methods except removeLast. Our removeLast function had a linear runtime, when it could have been a constant runtime had we used ArrayList. However, if we used ArrayList, our addFront would have a linear runtime. We have implemented doubly linked nodes because then all of our functions would be constant. Instead of iterating through all the linked nodes, we can just use getPrev to get a removeLast.
+
+## Updates
+We fixed some errors without our methods, specifically when you addFirst() and then call removeLast() and also when you addLast() and then call removeFirst(). There were some cases that weren't considered so certain ifelse statements needed to be added. We commentfied everything to make it very over the top. We also made sure our code tested against all of the driver files.
